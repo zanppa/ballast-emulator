@@ -6,7 +6,7 @@ projector (e.g. Canon LV-X7 whivh I used) to turn on without a lamp (or the orig
 This allows using a custom lamp or use the LCD or whatever for other purposes.
 
 ## Operation mode
-The operation mode is set by pull-up or pull-down resistors on pins ```PB3``` (ID0) and ```PB4``` (ID1). 
+The operation mode is set by pull-up or pull-down resistors on pins `PB3` (ID0) and `PB4` (ID1). 
 Following table shows how the modes are selected, 0=pulled down, 1=pulled up.
 
 | Mode   | PB3, ID0 | PB4, ID1 |
@@ -32,10 +32,10 @@ The 3-wire ballast has 3 digital pins for communication: power, dim and sync. Th
 | 6 | PB1 | PWR | output |
 | 7 | PB2 | Sync | input |
  
- The ```Sync``` pin indicates that the projector wants to turn the lamp on. In this mode the emulator responds 
- by setting the ```PWR``` pin high which indicates that the lamp is powered.
+ The `Sync` pin indicates that the projector wants to turn the lamp on. In this mode the emulator responds 
+ by setting the `PWR` pin high which indicates that the lamp is powered.
  
- The ```DIM``` pin is used to indicate that the projector wants to dim the lamp. The emulator does nothing with this pin.
+ The `DIM` pin is used to indicate that the projector wants to dim the lamp. The emulator does nothing with this pin.
  
  
 ## Osram
@@ -50,7 +50,7 @@ The Ushio ballast uses a serial communication operating at 2400 bps, 8 data bits
 | 6 | PB1 | TX | output |
 | 7 | PB2 | Power flag | input |
 
-The ```Power flag``` is not used in the emulator.
+The `Power flag` is not used in the emulator.
 
 The serial communication is handled by a very simple software UART implementation. I have no idea what the messages sent by the projector mean, and the replies are sniffed by [people](http://www.eevblog.com/forum/beginners/video-projector-ballast-bypass-help/) having a working projector (my projector was without lamp so I could only sniff projector messages). I only corrected the decoding presented in the thread. Following message-reply pairs are implemented, and they seem to be enough to turn the projector on.
 ```
